@@ -50,9 +50,15 @@ class Navigation extends Component {
                   {this.props.user}
                   </button>
                   <div className="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="/profile">Personal Information</a>
+                    <NavLink to="/profile" className="navbar-item nav-link dropdown-item">
+                      Personal Information
+                    </NavLink>
+                    <NavLink to="/about" className="navbar-item nav-link dropdown-item" onClick={e => logOutUser(e)}>
+                      log out
+                    </NavLink>
+                    {/* <a className="dropdown-item" href="/profile">Personal Information</a>
                     <a className="dropdown-item"href="/login" 
-                      onClick={e => logOutUser(e)}>log out</a>
+                      onClick={e => logOutUser(e)}>log out</a> */}
                   </div>
                 </div>
                 // <Link className="nav-item nav-link" to="/profile">

@@ -21,6 +21,7 @@ class Register extends Component {
   }
 
   handleChange(e) {
+    e.preventDefault();
     const itemName = e.target.name;
 
     const itemValue = e.target.value;

@@ -4,13 +4,13 @@ import { Router, navigate } from '@reach/router';
 import Axios from 'axios';
 
 import Home from './Home';
-import Welcome from './Welcome';
 import Navigation from './Navigation';
 import Login from './Login';
 import Register from './Register';
 import Search from './Search';
 import Profile from './Profile';
 import Footer from './Footer';
+import Images from './Images';
 
 Axios.defaults.withCredentials = true;
 
@@ -21,7 +21,8 @@ class App extends Component {
       user: null,
       displayName: null,
       userID: null,
-      user_info:null
+      user_info:null,
+      editContent:false
     };
     this.isUserAuthenticated = this.isUserAuthenticated.bind(this);
   }
@@ -97,8 +98,11 @@ class App extends Component {
             <Search
               path="/search"
             />
+            <Images
+              path="/images"
+            />
             {this.state.user && <Profile
-              path="/profile" user={this.state.user_info}
+              path="/profile" user={this.state.user_info} editContent={this.state.editContents}
             />}
           </Router>
           <Footer/>

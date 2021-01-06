@@ -5,11 +5,6 @@ class Home extends Component {
   render() {
     const { user } = this.props;
 
-    const biggerLead = {
-      fontSize: 1.8 + 'em',
-      fontWeight: 400
-    };
-
     return (
       <div>
         <div className="container-fluid text-center bg-image">
