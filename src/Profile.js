@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Axios from 'axios';
+import { navigate } from "@reach/router/lib/history";
 
 class Profile extends Component {
     constructor(props) {
@@ -7,12 +7,11 @@ class Profile extends Component {
         this.state = {
             editContent:false,
             buttonName: "Edit Profile",
-            organizations: [],
             enableOrg: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.enableOrgText = this.enableOrgText.bind(this);
-        this.getOrg = this.getOrg.bind(this);
+        this.handleCurricula = this.handleCurricula.bind(this);
     }
 
     handleChange(e) {
@@ -36,18 +35,8 @@ class Profile extends Component {
         }   
     }
 
-    getOrg() {
-        Axios.get("http://localhost:3001/getOrg").then((response) => {
-            if (response) {
-                if(response.data.result.length > 0) {
-                    this.setState({organizations: response.data.result});
-                }
-            }
-        });
-    }
-
-    componentDidMount() {
-        this.getOrg();
+    handleCurricula() {
+        navigate('/addCurricula');
     }
 
     render() {
@@ -109,8 +98,8 @@ class Profile extends Component {
                     {this.state.editContent && <div className="form-group">
                         <label  hmtlfor="input-org">Organization Name</label>
                         <select id="inputState" className="form-control" onChange={(e) => this.enableOrgText(e)}>
-                            <option defaultValue="" selected disabled>Please select..</option>
-                            {this.state.organizations && this.state.organizations.map((item, index) => {
+                            <option defaultValue="">Please select..</option>
+                            {this.props.organizations && this.props.organizations.map((item, index) => {
                                 return(<option key={index}>{item.org_name}</option>);
                             })}
                             <option key={"other"}>Other</option>
@@ -125,6 +114,9 @@ class Profile extends Component {
                             onChange={(e)=>this.props.user.email = e.value}
                         />
                     </div>}
+                    <div className="form-group text-center">
+                        <button className="bg-primary" onClick={this.handleCurricula}>Add New Curricula</button>
+                    </div>
                 </form>
             </div>
         );

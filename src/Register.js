@@ -138,6 +138,7 @@ class Register extends Component {
                       <input
                         className="form-control"
                         type="password"
+                        required
                         name="passOne"
                         placeholder="Password"
                         value={this.state.passOne}
