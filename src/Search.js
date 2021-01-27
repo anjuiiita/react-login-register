@@ -32,7 +32,6 @@ class Search extends Component {
     }
     this.handleChange = this.handleChange.bind(this);
     this.advancedSearchDisplay = this.advancedSearchDisplay.bind(this);
-    this.getCategories = this.getCategories.bind(this)
     this.selectSubCategories = this.selectSubCategories.bind(this);
     this.selectSubSubCategories = this.selectSubSubCategories.bind(this);
     this.selectLevel = this.selectLevel.bind(this);
