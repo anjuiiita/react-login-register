@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { states } from './us_states.js';
 import CurriculaSuccess from './CurriculaSuccess';
+import { FaInfoCircle } from 'react-icons/fa';
+import ReactTooltip from 'react-tooltip';
 
 // import FormError from './FormError';
 // import FormSuccess from './FormSuccess';
@@ -354,7 +356,10 @@ class AddNewCurricula extends Component {
                                 onChange={(e) => this.handleChange(e)}
                             />
                         </div>}
-                        <label>Select Category</label>
+                        <label className="mr-1">Select Category </label>
+                            <FaInfoCircle data-tip="anju" data-place="right" data-background-color="#fff"
+                            data-text-color="black" data-arrow-color="#fff"></FaInfoCircle><ReactTooltip />
+                        
                         <br />
                         <div className="form-group mx-4">
                             {this.state.categories.map((category, index) => {
